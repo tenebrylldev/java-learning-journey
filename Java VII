@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Asal olup olmadığını görmek istediğiniz sayıyı girin: ");
+        isPrime(scanner.nextInt());
+
+    }
+    public static boolean isPrime(int number) {
+        if (number == 1) {
+            System.out.println("1 sayısı her sayıya bölünen olduğu için asal değildir.");
+            return false;
+
+        } else if (number <= 0) {
+            System.out.println("0 ve negatif sayılar kabul edilmez.");
+            return false;
+        }
+
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                System.out.println("Belirttiğiniz sayı asal değildir.");
+                return false;
+            }
+        }
+        System.out.println("Belirttiğiniz sayı asaldır.");
+        return true;
+    }
+}

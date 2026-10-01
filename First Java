@@ -1,0 +1,31 @@
+public class Main {
+    public static void main(String[] args) {
+
+        String world = "Hello World!";
+        String subs = world.substring(0, 5);
+        System.out.println("The Substring: " + subs + " (Hello World!)");
+
+
+        String mouse = "A mouse!";
+        int count = mouse.length();
+        System.out.println("---");
+        System.out.println("The Full Length: " + count + " (Amouse!)");
+
+
+        String jack = "Hello{}Jack!";
+        jack = jack.replace("{}", " ");
+        System.out.println("---");
+        System.out.println("The Correct Word: " + jack + " (Hello{}Jack!)");
+
+        String country = "Here is Azerbaijan!";
+        country = country.substring(0, 7) + country.substring(7).toUpperCase();
+        System.out.println("---");
+        System.out.println("The Biggest: " + country + " (Here is Azerbaijan!)");
+
+
+        String phone = "    Look at the Phone!    ";
+        phone = phone.trim();
+        System.out.println("---");
+        System.out.println("The Correct Text: " + phone + " (    Look at the Phone!    )");
+    }
+}

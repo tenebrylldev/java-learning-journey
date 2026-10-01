@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // if / else DERS 1
+
+        Scanner input = new Scanner(System.in);
+        int randomNumber, inputNumber;
+
+        System.out.print("Enter a 1-100 to number: ");
+        inputNumber = input.nextInt();
+        if (inputNumber > 100 || inputNumber <= 0) {
+            input.close();
+            System.out.println("Please enter a number between 1 and 100");
+            System.out.println();
+            System.out.println("Try Again.");
+            return;
+        }
+
+        randomNumber = (int) (Math.random() * 100 + 1);
+        System.out.println("Random number is: " + randomNumber);
+
+        if (inputNumber > randomNumber) {
+            System.out.println("Your selected number bigger than random number: " + inputNumber + " > " + randomNumber);
+        } else if (inputNumber < randomNumber) {
+            System.out.println("Your selected number smaller than random number: " + inputNumber + " < " + randomNumber);
+        } else
+            System.out.println("Your selected number equals with the random number: " + inputNumber + " = " + randomNumber);
+
+        input.close();
+    }
+}

@@ -1,0 +1,27 @@
+public class Main {
+    public static void main(String[] args) {
+        int numSing = 0;
+        int numDoub = 0;
+        int i = 1;
+//        for (int i = 1; i <= 10; i++) {
+//            if (i % 2 == 0)
+//                numDoub = numDoub + 1;
+//            else
+//                numSing = numSing + 1;
+//        }
+//        System.out.println("numSing = " + numSing);
+//        System.out.println("numDoub = " + numDoub);
+
+        while (i <= 10) {
+            if (i % 2 == 0) {
+                numDoub = numDoub + 1;
+            }
+            else {
+                numSing = numSing + 1;
+            }
+            i++;
+        }
+        System.out.println("numSing = " + numSing);
+        System.out.println("numDoub = " + numDoub);
+    }
+}

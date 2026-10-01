@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        // Here is user input
+        Scanner input = new Scanner(System.in);
+        System.out.print("Please enter your email: ");
+        String mail = input.nextLine();
+
+        // Here is level 1 corrections
+        int atSign = mail.indexOf("@");
+        String result1 = mail.substring(0, atSign);
+        int dotSign = mail.indexOf(".");
+        String result2 = result1.substring(dotSign+1);
+        String result3 = result2.substring(0,1).toUpperCase() + result2.substring(1);
+
+        // And here is final result
+        System.out.println("Welcome " + result3 + ".");
+
+    }
+}

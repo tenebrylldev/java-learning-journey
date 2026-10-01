@@ -1,0 +1,38 @@
+package learnContinue10;
+
+public class Main {
+    public static void main(String[] args) {
+        Sayac sayac1 = new Sayac();
+        Thread thread1 = new Thread(sayac1);
+
+        thread1.start();
+    }
+}
+
+
+----
+
+
+package learnContinue10;
+
+public class Sayac implements Runnable {
+
+    @Override
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            try {
+                System.out.println(i);
+
+                if (i == 10) {
+                    Thread.sleep(1000);
+                    System.out.println("Disco!");
+                } else
+                    Thread.sleep(1000);
+
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
+        }
+    }
+
+}

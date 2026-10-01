@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int password = 2314;
+        int takePassword = 0;
+        byte attempts = 3;
+
+        do {
+            System.out.print("Enter your password: ");
+            takePassword = scanner.nextInt();
+            if (takePassword != password) {
+                attempts--;
+                if (attempts == 0) {
+                    System.out.println("You are reached your allocated limit.");
+                    break;
+                }
+                System.out.println("Incorrect password! Try Again.");
+            }
+        } while (takePassword != password);
+
+        if (takePassword == password)
+            System.out.println("Password is correct!");
+    }
+}

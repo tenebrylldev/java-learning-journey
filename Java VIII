@@ -1,0 +1,38 @@
+package moneySystem;
+
+public class Main {
+    public static void main(String[] args) {
+        MoneyManager moneyManager = new MoneyManager();
+
+        System.out.printf("Player's name: %s%n", moneyManager.getPlayerName());
+        if (moneyManager.getPlayerBudget() % 1 == 0) {
+            System.out.printf("Player's budget: %.0f%n", moneyManager.getPlayerBudget());
+        } else {
+            System.out.printf("Player's budget: %.1f%n", moneyManager.getPlayerBudget());
+        }
+    }
+}
+
+----
+
+package moneySystem;
+
+public class MoneyManager {
+    private String playerName = "Tenebryll";
+    private double playerBudget = 100.0;
+
+    public String getPlayerName() {
+        return this .playerName;
+    } public double getPlayerBudget() {
+        return this .playerBudget;
+    }
+
+    public void addMoney(double money) {
+        this .playerBudget += money;
+    } public void subtractMoney(double money) {
+        if (money < playerBudget)
+            System.out.println("Insufficient funds!");
+        else
+            this .playerBudget -= money;
+    }
+}

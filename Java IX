@@ -1,0 +1,125 @@
+package learnContinue9;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("--- Otopark Sistemine Hoş Geldiniz ---");
+
+        GasolineCar bmw = new GasolineCar();
+        ElectricCar tesla = new ElectricCar();
+
+        System.out.print("Aracınız benzinli mi yoksa elektrikli mi olsun?: ");
+        Scanner scanner = new Scanner(System.in);
+        String choice = scanner.next().toLowerCase();
+
+        switch (choice) {
+            case "benzinli" -> choice = "BMW";
+            case "elektrikli" -> choice = "Tesla";
+            default -> System.out.println("Geçersiz Seçim.");
+        }
+
+        if (choice.equals("BMW")) {
+            System.out.printf("Seçiminiz Benzinli %s olarak ayarlandı.%n", choice);
+            System.out.printf("%s'niz hangi renk olmalı?: ", choice);
+
+            bmw.setColor(scanner.next());
+            System.out.printf("%nAracınız başarıyla %s rengine bürünmüştür!%n", bmw.getColor());
+
+        } else if (choice.equals("Tesla")) {
+            System.out.printf("Seçiminiz Elektrikli %s olarak ayarlandı.%n", choice);
+            System.out.printf("%s'nız hangi renk olmalı?: ", choice);
+
+            tesla.setColor(scanner.next());
+            System.out.printf("%nAracınız başarıyla %s rengine bürünmüştür!%n", tesla.getColor());
+
+        }
+    }
+}
+
+
+----
+
+
+package learnContinue9;
+
+public class Car {
+    private String brand = "Arthelion";
+
+    // Functions
+    public void handBrake() {
+        System.out.println("The handbrake was pulled.");
+    } public void brake() {
+        System.out.println("The brakes were applied.");
+    } public void accelerator() {
+        System.out.println("The accelerator was pressed.");
+    }
+
+    // Getter
+    public String getBrand() {
+        return this.brand;
+    }
+
+}
+
+
+----
+
+
+package learnContinue9;
+
+public class ElectricCar extends Car {
+    private String model = "VMS-98HAS7Y";
+    private String battery = "X12M Flash";
+    private String color;
+
+    // Default
+    public ElectricCar() {
+        this.color = "Gray";
+    }
+
+    // Setter
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    // Getter
+    public String getColor() {
+        return this.color;
+    } public String getModel() {
+        return this.model;
+    } public String getBattery() {
+        return this.battery;
+    }
+}
+
+
+---
+
+
+package learnContinue9;
+
+public class GasolineCar extends Car {
+    private String model = "VMD-98HAS7Y";
+    private String engine = "CompanaV10";
+    private String color;
+
+    // Default
+    public GasolineCar() {
+        this.color = "Gray";
+    }
+
+    // Setter
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    // Getter
+    public String getColor() {
+        return this.color;
+    } public String getModel() {
+        return this.model;
+    } public String getEngine() {
+        return this.engine;
+    }
+}

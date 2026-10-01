@@ -1,0 +1,17 @@
+public class Main {
+    public static void main(String[] args) {
+        showDivisibleNumbers(2);
+        System.out.println("STOPPED TWO\n");
+
+        showDivisibleNumbers(3);
+        System.out.println("STOPPED THREE\n");
+    }
+
+    public static void showDivisibleNumbers(int divider) {
+        for (int i = 1; i <= 100; i++) {
+            if (i % divider == 0) {
+                System.out.println(i);
+            }
+        }
+    }
+}

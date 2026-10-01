@@ -1,0 +1,70 @@
+package wayven;
+
+import org.bukkit.plugin.java.JavaPlugin;
+
+public final class Main extends JavaPlugin {
+
+    @Override
+    public void onEnable() {
+        // Plugin startup logic
+
+        getCommand("heal").setExecutor(new HealFullCommand());
+    }
+
+    @Override
+    public void onDisable() {
+        // Plugin shutdown logic
+    }
+}
+
+
+----
+
+
+package wayven;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class HealFullCommand implements CommandExecutor {
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+
+            player.setHealth(20);
+            sender.sendMessage("Your health now full.");
+            return true;
+        } else {
+            sender.sendMessage("This command cannot be used from the console.");
+            return false;
+        }
+    }
+}
+
+
+
+
+__________
+plugin.yml
+_____|____
+
+name: The-First-Plugin
+version: '${version}'
+
+main: wayven.Main
+api-version: '1.21.11'
+load: POSTWORLD
+
+author: Tenebryll
+website: www.wayven.net
+
+commands:
+  heal:
+    aliases:
+      - heal2
+    description: Oyuncunun can barını doldurur.
+    usage: /heal

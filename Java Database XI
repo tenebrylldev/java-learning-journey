@@ -1,0 +1,28 @@
+package veriTabaniTest;
+
+import java.sql.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Connection connection = null;
+        String dbURL = "jdbc:postgresql://localhost:5432/DBJavaLearningTest";
+        String user = "user";
+        String pass = "user123";
+
+        try {
+            connection = DriverManager.getConnection(dbURL, user, pass);
+            System.out.println("Database connection successful");
+        } catch (SQLException sqlException) {
+            System.out.println("An error occurred while connecting to the database.");
+            sqlException.printStackTrace();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}
